@@ -19,9 +19,9 @@
         </svg>
         <input type="search" class="grow" placeholder="Search" name="search" 
         hx-get="{% url 'search' %}"
-        hx-trigger="keyup"
+        hx-trigger="keyup delay:500ms"
         hx-target="#contacts-list"/>
-        
+
         <kbd class="kbd kbd-sm">⌘</kbd>
         <kbd class="kbd kbd-sm">K</kbd>
       </label>
