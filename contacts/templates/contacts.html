@@ -20,10 +20,15 @@
         <input type="search" class="grow" placeholder="Search" name="search" 
         hx-get="{% url 'search' %}"
         hx-trigger="keyup delay:500ms"
-        hx-target="#contacts-list"/>
+        hx-target="#contacts-list"
+        hx-indicator="#spinner"
+        hx-on::before-request="document.getElementById('contacts-list').style.opacity=0.4;"
+        hx-on::after-request="document.getElementById('contacts-list').style.opacity=1.0;"/>
 
         <kbd class="kbd kbd-sm">⌘</kbd>
         <kbd class="kbd kbd-sm">K</kbd>
+     {% include "partials/spinner.html" %}
+
       </label>
     {% include "partials/contact-list.html" %}
 
