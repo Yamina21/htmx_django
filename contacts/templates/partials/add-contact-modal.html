@@ -1,0 +1,44 @@
+
+
+<dialog id="contact_modal" class="modal">
+<div class="modal-box">
+    <h3 class="text-4xl text-success mb-4">Add Cotact</h3>
+
+<for method="post" class="mb-4">
+    {% csrf_token %}
+
+    <div class=="form-controll w-full">
+        <lable class="label">
+            <span class="label-text"> Name: </span>
+            {% comment %}
+            {{ form }} {% endcomment %}
+        </label>
+        {{form.name}}
+
+   {% if form.name.errors %}
+        <lable class="label text-error" >{{form.name.errors}}</label>
+
+   {% endif %}
+    </div>
+    <div class=="form-controll w-full">
+        <lable class="label">
+            <span class="label-text"> Email: </span>
+            {% comment %} {% csrf_token %}
+            {{ form }} {% endcomment %}
+        </label>
+        {{form.email}}
+
+   {% if form.email.errors %}
+        <lable class="label text-error" >{{form.email.errors}}</label>
+
+   {% endif %}
+    </div>
+    <div class="modal-action">
+
+            <button type="submit" class=" btn btn-primary"> Add Contact</button>
+            <button type="button" class="btn" onclick="contact_modal.close()"> cancel</button>
+
+    </div>
+ </form>
+</div>
+</dialog>
