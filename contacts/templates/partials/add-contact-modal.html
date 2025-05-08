@@ -4,7 +4,11 @@
 <div class="modal-box">
     <h3 class="text-4xl text-success mb-4">Add Cotact</h3>
 
-<for method="post" class="mb-4">
+<form hx-post="{% url 'create-contact' %}"  hx-target="#contact-table-body"
+      hx-on:success='contact_modal.close(); this.reset();'
+      hx-swap="afterbegin" 
+      class="mb-4">
+      
     {% csrf_token %}
 
     <div class=="form-controll w-full">
